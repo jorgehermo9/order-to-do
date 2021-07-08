@@ -1,16 +1,24 @@
 .input-item{
-	width: 100%;
-	margin:1vmax 0;
+	width: 90%;
 }
 .submmit{
-	margin:2vmax;
-	transform:scale(1.5);
+	transform: scale(1.5);
+}
+.input-file{
+	width:90%;
 }
 .input-container{
 	display:grid;
-	grid-auto-flow: column;
+	grid-template-columns: repeat(2,1fr);
+	grid-template-rows: repeat(2,1fr);
+	column-gap: 1vmax;
+	row-gap:1vmax;
 	align-items:center;
 	justify-items: left;
 
 	margin-top:1vmax;
+	padding:1vmax;
+	border:3px solid rgb(39, 183, 240);
+	border-radius: 1.5vmax;
+	background-color:rgb(201, 226, 243);
 }

@@ -10,6 +10,8 @@
 	margin:0.5vmax 0;
 	width: 40vmax;
 	height: 50vmax;
-	border: 3px solid rgb(87, 164, 228);
-	border-radius: 5%;
+	border:3px solid rgb(39, 240, 139);
+	border-radius: 1.5vmax;
+	background-color:rgb(201, 243, 218);
+
 }
