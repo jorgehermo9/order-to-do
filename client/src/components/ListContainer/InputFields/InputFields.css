@@ -1,0 +1,16 @@
+.input-item{
+	width: 100%;
+	margin:1vmax 0;
+}
+.submmit{
+	margin:2vmax;
+	transform:scale(1.5);
+}
+.input-container{
+	display:grid;
+	grid-auto-flow: column;
+	align-items:center;
+	justify-items: left;
+
+	margin-top:1vmax;
+}
