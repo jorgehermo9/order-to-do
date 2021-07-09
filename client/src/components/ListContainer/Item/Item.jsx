@@ -18,11 +18,24 @@ function Item (props){
 	},[props.item.png,props.item.svg]);
 
 	return(
-		<li>
-			{props.item.desc} 
-			{props.item.png && <a download="image.png" href={pngFile}>png</a>}
-			{props.item.svg && <a download="image.svg" href={svgFile}>svg</a>}
-		</li>
+		<div className="item-wrapper">
+			<div className="list-item">
+				{props.item.desc} 
+
+			</div>
+			{props.item.png && <a className="png" download="image.png" href={pngFile}>png</a>}
+			{props.item.svg && <a className="svg" download="image.svg" href={svgFile}>svg</a>}
+			<div className="btn info">
+				info
+			</div>
+			<div className="btn edit">
+				edit
+			</div>
+			<div className="btn check">
+				check
+			</div>
+		</div>
+
 		)
 	}
 

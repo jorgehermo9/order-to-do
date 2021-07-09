@@ -15,9 +15,7 @@ function ListContainer(props) {
 		<div className="list-container">
 			<InputFields appendToList={appendToList}/>
 			<div className="main-container">
-				<ul>
-					{items.map((item,index) =><Item key={index} item={item}/>)}
-				</ul>
+				{items.map((item,index) =><Item key={index} item={item}/>)}
 			</div>
 		</div>
 	)

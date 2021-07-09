@@ -11,13 +11,13 @@
 	display:grid;
 	grid-template-columns: repeat(2,1fr);
 	grid-template-rows: repeat(2,1fr);
-	column-gap: 1.5vmax;
-	row-gap: 1.5vmax;
+	grid-gap: 1.5vmax;
 	align-items:center;
 	justify-items: left;
 
+	
 	margin-top:1vmax;
-	padding:1vmax;
+	padding:1vw;
 	border:3px solid rgb(39, 183, 240);
 	border-radius: 1.5vmax;
 	background-color:rgb(201, 226, 243);
