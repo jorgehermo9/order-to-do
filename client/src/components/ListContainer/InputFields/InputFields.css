@@ -11,8 +11,8 @@
 	display:grid;
 	grid-template-columns: repeat(2,1fr);
 	grid-template-rows: repeat(2,1fr);
-	column-gap: 1vmax;
-	row-gap:1vmax;
+	column-gap: 1.5vmax;
+	row-gap: 1.5vmax;
 	align-items:center;
 	justify-items: left;
 

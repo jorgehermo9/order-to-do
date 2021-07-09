@@ -1,8 +1,12 @@
 import {React,useState} from 'react'
 import InputFields from "./InputFields/InputFields"
+import Item from "./Item/Item"
+
 import "./ListContainer.css"
 
 function ListContainer(props) {
+
+
 	function appendToList(item){
 		setItems(prev =>[...prev,item]);
 	}
@@ -12,7 +16,7 @@ function ListContainer(props) {
 			<InputFields appendToList={appendToList}/>
 			<div className="main-container">
 				<ul>
-					{items.map(item =><li>{item.desc}</li>)}
+					{items.map((item,index) =><Item key={index} item={item}/>)}
 				</ul>
 			</div>
 		</div>
