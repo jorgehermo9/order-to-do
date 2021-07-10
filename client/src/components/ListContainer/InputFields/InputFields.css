@@ -2,6 +2,7 @@
 	width: 90%;
 }
 .submmit{
+	cursor:pointer;
 	transform: scale(1.5);
 }
 .input-file{
@@ -15,7 +16,7 @@
 	align-items:center;
 	justify-items: left;
 
-	
+		
 	margin-top:1vmax;
 	padding:1vw;
 	border:3px solid rgb(39, 183, 240);

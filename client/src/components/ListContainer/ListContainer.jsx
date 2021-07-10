@@ -8,7 +8,7 @@ function ListContainer(props) {
 
 
 	function appendToList(item){
-		setItems(prev =>[...prev,item]);
+		setItems(prev =>[item,...prev]);
 	}
 	const [items,setItems] = useState([]);
 	return(
