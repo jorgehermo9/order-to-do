@@ -2,9 +2,9 @@ import {React,useState} from 'react'
 import InputFields from "./InputFields/InputFields"
 import Item from "./Item/Item"
 
-import "./ListContainer.css"
+import "./MainContainer.css"
 
-function ListContainer(props) {
+function MainContainer(props) {
 
 
 	function appendToList(item){
@@ -12,13 +12,13 @@ function ListContainer(props) {
 	}
 	const [items,setItems] = useState([]);
 	return(
-		<div className="list-container">
+		<div className="main-container">
 			<InputFields appendToList={appendToList}/>
-			<div className="main-container">
+			<div className="list-container">
 				{items.map((item,index) =><Item key={index} item={item}/>)}
 			</div>
 		</div>
 	)
 }
 
-export default ListContainer;
+export default MainContainer;

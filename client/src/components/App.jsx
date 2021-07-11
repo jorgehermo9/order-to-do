@@ -1,9 +1,9 @@
 import React from "react";
-import ListContainer from "./ListContainer/ListContainer";
+import MainContainer from "./MainContainer/MainContainer";
 
 
 function App(){
-	return(<ListContainer/>);
+	return(<MainContainer/>);
 }
 
 export default App;
