@@ -15,7 +15,7 @@ function ListContainer(props) {
 		<div className="list-container">
 			<InputFields appendToList={appendToList}/>
 			<div className="items-container">
-				{items.map((item,index) =><Item key={index} item={item}/>)}
+				{items.map((item,index) =><Item key={index} item={item} setSelectedItem={props.setSelectedItem}/>)}
 			</div>
 		</div>
 	)

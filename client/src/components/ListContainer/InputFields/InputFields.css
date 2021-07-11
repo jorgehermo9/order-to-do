@@ -1,7 +1,10 @@
+
 .input-item{
-	width: 90%;
+	margin:0.2vmax;
+	width: 100%;
 }
 .submmit{
+	grid-area:submmit;
 	cursor:pointer;
 	transform: scale(1.5);
 }
@@ -10,8 +13,12 @@
 }
 .input-container{
 	display:grid;
-	grid-template-columns: repeat(2,1fr);
-	grid-template-rows: repeat(2,1fr);
+	grid-template-rows:1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-areas:
+	"input input submmit"
+	"png svg gcode";
+
 	grid-gap: 1.5vmax;
 	align-items:center;
 	justify-items: left;
@@ -21,4 +28,16 @@
 	border:3px solid rgb(39, 183, 240);
 	border-radius: 1.5vmax;
 	background-color:rgb(201, 226, 243);
+}
+.text-container{
+	grid-area:input;
+}
+.png-container{
+	grid-area:png;
+}
+.svg-container{
+	grid-area:svg;
+}
+.gcode-container{
+	grid-area:gcode;
 }

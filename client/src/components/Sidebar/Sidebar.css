@@ -1,10 +1,73 @@
 .sidebar{
 	position:fixed;
+	display:grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns:9fr 1fr;
+	grid-template-areas: 
+	"img close"
+	"info info	";
+	grid-row-gap:1vmax;
 	margin-top:1vmax;
 	left:72.5vw;
 	top:0;
-	width:25vw;
-	height:30vmax;
-	border: 3px solid orange;
-	background-color:rgb(21, 124, 155);
+	width:23vw;
+	height: 30vmax;
+	padding:1vw;
+	border: 0.2vw solid rgba(18, 95, 218, 0.424);
+	background-color:rgba(114, 205, 233, 0.363);
+	border-radius: 1vmax;
+}
+.info-container{
+	display:grid;
+	grid-area:info;
+	grid-template-rows:1fr 1fr 1fr;
+	grid-template-columns:1fr 4fr;
+	grid-template-areas:
+	"desc descText"
+	"client clientText"
+	"address addressText";
+	grid-gap:1vmax;
+	align-items: center;
+}
+
+.description{
+	grid-area:desc;
+}
+.description-text{
+	grid-area:descText;
+}
+.client{
+	grid-area:client;
+}
+.client-text{
+	grid-area:clientText;
+}
+.address{
+	grid-area:address;
+}
+.description-text{
+	grid-area:addressText;
+}
+.close-icon{
+	grid-area:close;
+	justify-self:right;
+	cursor:pointer;
+	transform:scale(1.5);
+}
+
+.text{
+	padding: 0.5vmax;
+	background-color:white;
+	overflow-y:auto;
+}
+.text-wrapper{
+	border: 0.2vw solid rgba(18, 95, 218, 0.424);
+	border-radius:1vmax;
+	overflow:hidden;
+}
+.image{
+	max-width:100%;
+	height:100%;
+	border-radius:1vmax;
+	justify-self: center;
 }

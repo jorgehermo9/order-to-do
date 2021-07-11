@@ -14,18 +14,18 @@ function Item (props){
 	useEffect(()=>{
 		props.item.png?toBase64(props.item.png).then((file)=>setPng(file)):setPng(null);
 		props.item.svg?toBase64(props.item.svg).then((file)=>setSvg(file)):setSvg(null);
-
 	},[props.item.png,props.item.svg]);
 
 	return(
 		<div className="item-wrapper">
 			<div className="list-item">
 				{props.item.desc} 
-
 			</div>
 			{props.item.png && <a className="png" download="image.png" href={pngFile}>png</a>}
 			{props.item.svg && <a className="svg" download="image.svg" href={svgFile}>svg</a>}
-			<div className="btn info">
+			{props.item.gcode && <a className="gcode" download="image.gcode" href={svgFile}>gcode</a>}
+
+			<div className="btn info" onClick={()=>props.setSelectedItem(props.item)}>
 				info
 			</div>
 			<div className="btn edit">
