@@ -1,4 +1,4 @@
-import {React,useState} from 'react'
+import {React,useState,useRef} from 'react'
 import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
 import "./InputFields.css"
 function InputFields(props){
@@ -10,7 +10,7 @@ function InputFields(props){
 			address:itemAddress,
 			png:pngFile,
 			svg:svgFile,
-			gcode:gcodeFile
+			gnc:gncFile
 		};
 		props.appendToList(item);
 
@@ -19,8 +19,11 @@ function InputFields(props){
 		setItemAdress("");
 		setPng(null);
 		setSvg(null);
-		setGcode(null);
+		setGnc(null);
 
+		pngRef.current.value="";
+		svgRef.current.value="";
+		gncRef.current.value="";
 	}
 
 	const [itemDesc,setItemDesc] = useState("");
@@ -29,7 +32,11 @@ function InputFields(props){
 
 	const [pngFile,setPng] = useState(null);
 	const [svgFile,setSvg] = useState(null);
-	const [gcodeFile,setGcode] = useState(null);
+	const [gncFile,setGnc] = useState(null);
+
+	const pngRef=useRef();
+	const svgRef=useRef();
+	const gncRef=useRef();
 
 
 	return(
@@ -45,19 +52,19 @@ function InputFields(props){
 			<div className="png-container">
 				<label htmlFor="pngInput">Choose png</label>
 				<input className="input-file" type="file" accept=".jpg,.jpeg,.png" name="pngInput" id="pngInput"
-					onChange={event=>setPng(event.target.files[0])}/>
+					onChange={event=>setPng(event.target.files[0])} ref={pngRef}/>
 			</div>
 
 			<div className="svg-container">
 				<label htmlFor="svgInput">Choose svg</label>
 				<input className="input-file" type="file" accept=".svg" name="svgInput" id="svgInput"
-					onChange={event=>setSvg(event.target.files[0])}/>
+					onChange={event=>setSvg(event.target.files[0])} ref={svgRef}/>
 			</div>
 
-			<div className="gcode-container">
-				<label htmlFor="gcodeInput">Choose gcode</label>
-				<input className="input-file" type="file" accept=".gnc" name="gcodeInput" id="gcodeInput"
-					onChange={event=>setGcode(event.target.files[0])}/>
+			<div className="gnc-container">
+				<label htmlFor="gncInput">Choose gnc</label>
+				<input className="input-file" type="file" accept=".gnc" name="gncInput" id="gncInput"
+					onChange={event=>setGnc(event.target.files[0])} ref={gncRef}/>
 			</div>
 
 		</div>

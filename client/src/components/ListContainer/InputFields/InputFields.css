@@ -17,7 +17,7 @@
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-areas:
 	"input input submmit"
-	"png svg gcode";
+	"png svg gnc";
 
 	grid-gap: 1.5vmax;
 	align-items:center;
@@ -38,6 +38,6 @@
 .svg-container{
 	grid-area:svg;
 }
-.gcode-container{
-	grid-area:gcode;
+.gnc-container{
+	grid-area:gnc;
 }

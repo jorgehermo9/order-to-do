@@ -1,10 +1,11 @@
-a{
-	margin:0 1vmax;
-}
+
 
 .item-wrapper{
 	display:grid;
-	grid-template-columns: repeat(10,1fr);
+	grid-template-columns: 3fr repeat(6,1fr);
+	grid-template-areas:
+	"item png svg gnc info edit check";
+
 	grid-gap:1vw ;
 	padding:0 1vmax;
 	
@@ -15,7 +16,7 @@ a{
 	height:100%;
 }
 .list-item{
-	grid-column:1/6;
+	grid-area: item;
 	overflow: auto;
 }
 .btn{
@@ -29,21 +30,25 @@ a{
 	background-color: rgb(199, 188, 188);
 }
 .png{
-	grid-column: 6/7;
+	grid-area: png;
 	text-align: center;
 }
 .svg{
-	grid-column: 7/8;
+	grid-area: svg;
+	text-align: center;
+}
+.gnc{
+	grid-area: gnc;
 	text-align: center;
 }
 .info{
-	grid-column:8/9;
-
+	grid-area: info;
 }
 .edit{
-	grid-column:9/10;
+	grid-area: edit;
+
 }
 .check{
+	grid-area: check;
 
-	grid-column:10/11;
 }

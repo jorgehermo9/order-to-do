@@ -10,11 +10,14 @@ function Item (props){
 
 	const [pngFile,setPng] = useState(null);
 	const [svgFile,setSvg] = useState(null);
+	const [gncFile,setGnc] = useState(null);
+
 
 	useEffect(()=>{
 		props.item.png?toBase64(props.item.png).then((file)=>setPng(file)):setPng(null);
 		props.item.svg?toBase64(props.item.svg).then((file)=>setSvg(file)):setSvg(null);
-	},[props.item.png,props.item.svg]);
+		props.item.gnc?toBase64(props.item.gnc).then((file)=>setGnc(file)):setGnc(null);
+	},[props.item.png,props.item.svg,props.item.gnc]);
 
 	return(
 		<div className="item-wrapper">
@@ -23,7 +26,7 @@ function Item (props){
 			</div>
 			{props.item.png && <a className="png" download="image.png" href={pngFile}>png</a>}
 			{props.item.svg && <a className="svg" download="image.svg" href={svgFile}>svg</a>}
-			{props.item.gcode && <a className="gcode" download="image.gcode" href={svgFile}>gcode</a>}
+			{props.item.gnc && <a className="gnc" download="image.gnc" href={gncFile}>gnc</a>}
 
 			<div className="btn info" onClick={()=>props.setSelectedItem(props.item)}>
 				info
