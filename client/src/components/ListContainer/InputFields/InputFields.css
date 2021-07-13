@@ -3,10 +3,29 @@
 	margin:0.2vmax;
 	width: 100%;
 }
+.buttons{
+
+	width: 100%;
+	display:grid;
+	grid-area: buttons;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas:
+	"submmit clear";
+	align-items: center;
+	justify-items: left;
+}
 .submmit{
 	grid-area:submmit;
 	cursor:pointer;
 	transform: scale(1.5);
+}
+.clear{
+	grid-area:clear;
+	cursor:pointer;
+	text-align: center;
+	border:0.15vmax solid rgb(53, 153, 219);
+	border-radius:0.5vmax;
+	background-color:white;
 }
 .input-file{
 	width:90%;
@@ -16,7 +35,7 @@
 	grid-template-rows:1fr 1fr;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-areas:
-	"input input submmit"
+	"input input buttons"
 	"png svg gnc";
 
 	grid-gap: 1.5vmax;

@@ -31,7 +31,7 @@ function Item (props){
 			<div className="btn info" onClick={()=>props.setSelectedItem(props.item)}>
 				info
 			</div>
-			<div className="btn edit">
+			<div className="btn edit" onClick={()=>props.setEditItem(props.item)}>
 				edit
 			</div>
 			<div className="btn check">
