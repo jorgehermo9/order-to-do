@@ -1,4 +1,4 @@
-import {React,useState} from 'react'
+import {React,useState,useEffect} from 'react'
 import InputFields from "./InputFields/InputFields"
 import Item from "./Item/Item"
 
@@ -8,13 +8,19 @@ function ListContainer(props) {
 
 
 	function appendToList(item){
-		setItems(prev =>[item,...prev]);
+		fetch("/api/add",{
+			method:"POST",
+			body:JSON.stringify({item:item}),
+			headers:{"Content-type":"application/json"}
+		})
+		.then(response=>response.json())
+		.then(item=>setItems(prev =>[item,...prev]))
 	}
+
 	function replaceItem(prevItem,newItem){
-		//Usar item.id para lo de abajo, recargar pestaña de info al editar
-		/*if(props.selectedItem === item){
-			props.setSelectedItem(item);
-		}*/
+		if(props.selectedItem && props.selectedItem._id === prevItem._id){
+			props.setSelectedItem(newItem);
+		}
 		setItems(prev =>{
 			let newArray = prev.slice();
 			newArray.splice(prev.indexOf(prevItem),1,newItem);
@@ -27,16 +33,37 @@ function ListContainer(props) {
 		replaceItem(item,newItem);
 	}
 	function removeItem(item){
-		//Usar item.id para lo de abajo, evitar que siga pestaña de info al borrar
-		/*if(props.selectedItem === item){
-			props.setSelectedItem(null);
-		}*/
+
+		fetch("/api/remove",{
+			method:"POST",
+			body:JSON.stringify({item:item}),
+			headers:{"Content-type":"application/json"}
+		})
+		.then(response=>response.json())
+		.then(recvItem => {
+			let newItems = items.slice().filter(
+				item => item._id !== recvItem._id)
+			setItems(newItems);
+			if(props.selectedItem && props.selectedItem._id === recvItem._id){
+				props.setSelectedItem(null);
+			}		
+		})
+
 		setItems(prev =>{
 			let newArray = prev.slice();
 			newArray.splice(prev.indexOf(item),1);
 			return newArray;
 		});
 	}
+	useEffect(()=>{
+		fetch("/api/orders",{
+			method:"POST",
+			body:JSON.stringify({}),
+			headers:{"Content-type":"application/json"}
+		})
+		.then(response=>response.json())
+		.then(items=>setItems(items.reverse()))
+	},[])
 	const [items,setItems] = useState([]);
 	const [editItem,setEditItem] = useState(null);
 	const [checked,setChecked] = useState(false);

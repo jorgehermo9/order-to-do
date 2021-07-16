@@ -16,8 +16,8 @@ const userSchema = new mongoose.Schema({
 	orders:[orderSchema]
 })
 
-const user = mongoose.model("user",userSchema);
-const order = mongoose.model("order",orderSchema);
+const User = mongoose.model("user",userSchema);
+const Order = mongoose.model("order",orderSchema);
 
-exports.user = user;
-exports.order = order;
+exports.User = User;
+exports.Order = Order;
