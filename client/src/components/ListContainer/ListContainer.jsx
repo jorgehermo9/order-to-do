@@ -17,15 +17,21 @@ function ListContainer(props) {
 		.then(item=>setItems(prev =>[item,...prev]))
 	}
 
-	function replaceItem(prevItem,newItem){
-		if(props.selectedItem && props.selectedItem._id === prevItem._id){
-			props.setSelectedItem(newItem);
-		}
-		setItems(prev =>{
-			let newArray = prev.slice();
-			newArray.splice(prev.indexOf(prevItem),1,newItem);
-			return newArray;
-		});
+	function replaceItem(newItem){
+		fetch("/api/edit",{
+			method:"POST",
+			body:JSON.stringify({item:newItem}),
+			headers:{"Content-type":"application/json"}
+		})
+		.then(response=>response.json())
+		.then(newItem=>{
+			let newArray = items.slice();
+			newArray.splice(newArray.findIndex(item=>item._id === newItem._id),1,newItem);
+			setItems(newArray);
+			if(props.selectedItem && props.selectedItem._id === newItem._id){
+				props.setSelectedItem(newItem);
+			}
+		})
 	}
 	function switchCheck(item){
 		let newItem={...item};
@@ -33,7 +39,6 @@ function ListContainer(props) {
 		replaceItem(item,newItem);
 	}
 	function removeItem(item){
-
 		fetch("/api/remove",{
 			method:"POST",
 			body:JSON.stringify({item:item}),
@@ -48,13 +53,8 @@ function ListContainer(props) {
 				props.setSelectedItem(null);
 			}		
 		})
-
-		setItems(prev =>{
-			let newArray = prev.slice();
-			newArray.splice(prev.indexOf(item),1);
-			return newArray;
-		});
 	}
+
 	useEffect(()=>{
 		fetch("/api/orders",{
 			method:"POST",

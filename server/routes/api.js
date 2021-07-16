@@ -53,11 +53,25 @@ router.post("/remove",(req,res)=>{
 	User.findOneAndUpdate(
 		{username:"user"},
 		{$pull:{"orders":{_id:id}}},
-		{returnOriginal:false,useFindAndModify:false},
+		{useFindAndModify:false},
 		(err)=>{
 			if(err) return console.error(err);
 			res.send(JSON.stringify(req.body.item))
 			console.log("removed order from user");
+		}
+	)
+})
+router.post("/edit",(req,res)=>{
+	const id = req.body.item._id;
+	User.findOneAndUpdate(
+		{username:"user","orders._id":id},
+		{$set:{"orders.$":req.body.item}},
+		{returnOriginal:false,useFindAndModify:false},
+		(err,item)=>{
+			if(err) return console.error(err);
+			res.send(JSON.stringify(item))
+			console.log(item);
+			console.log("edited order from user");
 		}
 	)
 })
