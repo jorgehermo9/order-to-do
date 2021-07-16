@@ -4,7 +4,7 @@
 	display:grid;
 	grid-template-columns: 3fr repeat(6,1fr);
 	grid-template-areas:
-	"item png svg gnc info edit check";
+	"item png svg ngc info edit check";
 
 	grid-gap:1vw ;
 	padding:0 1vmax;
@@ -37,8 +37,8 @@
 	grid-area: svg;
 	text-align: center;
 }
-.gnc{
-	grid-area: gnc;
+.ngc{
+	grid-area: ngc;
 	text-align: center;
 }
 .info{

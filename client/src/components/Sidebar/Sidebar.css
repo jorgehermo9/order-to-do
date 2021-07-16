@@ -35,7 +35,7 @@
 	grid-area:files;
 	grid-template-columns:1fr 1fr 1fr;
 	grid-template-areas:
-	"png svg gnc";
+	"png svg ngc";
 	align-items: center;
 }
 .png-container{
@@ -46,8 +46,8 @@
 	grid-area:svg;
 	text-align: center;
 }
-.gnc-container{
-	grid-area:gnc;
+.ngc-container{
+	grid-area:ngc;
 	text-align: center;
 }
 

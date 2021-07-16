@@ -2,16 +2,23 @@ import {React,useState,useRef,useEffect} from 'react'
 import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
 import "./InputFields.css"
 function InputFields(props){
+	const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+	});
+
 	function reset(){
 		setItemDesc("");
 		setItemClient("");
 		setItemAddress("");
 		setPng(null);
 		setSvg(null);
-		setGnc(null);
+		setNgc(null);
 		pngRef.current.value="";
 		svgRef.current.value="";
-		gncRef.current.value="";
+		ngcRef.current.value="";
 		if(props.editItem !== null){
 			props.setEditItem(null);
 		}
@@ -24,7 +31,7 @@ function InputFields(props){
 			address:itemAddress,
 			png:pngFile,
 			svg:svgFile,
-			gnc:gncFile,
+			ngc:ngcFile,
 			checked:false
 		};
 		if(props.editItem !==null)
@@ -41,12 +48,12 @@ function InputFields(props){
 
 	const [pngFile,setPng] = useState(null);
 	const [svgFile,setSvg] = useState(null);
-	const [gncFile,setGnc] = useState(null);
+	const [ngcFile,setNgc] = useState(null);
 	//Cambiar setFile en vez de fila a string base 64
 	
 	const pngRef=useRef();
 	const svgRef=useRef();
-	const gncRef=useRef();
+	const ngcRef=useRef();
 
 	useEffect(()=>{
 		if(props.editItem){
@@ -55,7 +62,7 @@ function InputFields(props){
 			setItemAddress(props.editItem.address);
 			setPng(props.editItem.png);
 			setSvg(props.editItem.svg);
-			setGnc(props.editItem.gnc);
+			setNgc(props.editItem.ngc);
 		}
 	},[props.editItem])
 	return(
@@ -76,20 +83,20 @@ function InputFields(props){
 			<div className="png-container">
 				<label htmlFor="pngInput">Choose png</label>
 				<input className="input-file" type="file" accept=".jpg,.jpeg,.png" name="pngInput" id="pngInput"
-					onChange={event=>setPng(event.target.files[0])} ref={pngRef}/>
+					onChange={event=>toBase64(event.target.files[0]).then(file =>setPng(file))} ref={pngRef}/>
 					
 			</div>
 
 			<div className="svg-container">
 				<label htmlFor="svgInput">Choose svg</label>
 				<input className="input-file" type="file" accept=".svg" name="svgInput" id="svgInput"
-					onChange={event=>setSvg(event.target.files[0])} ref={svgRef} />
+					onChange={event=>toBase64(event.target.files[0]).then(file =>setSvg(file))} ref={svgRef} />
 			</div>
 
-			<div className="gnc-container">
-				<label htmlFor="gncInput">Choose gnc</label>
-				<input className="input-file" type="file" accept=".gnc" name="gncInput" id="gncInput"
-					onChange={event=>setGnc(event.target.files[0])} ref={gncRef}/>
+			<div className="ngc-container">
+				<label htmlFor="ngcInput">Choose ngc</label>
+				<input className="input-file" type="file" accept=".ngc" name="ngcInput" id="ngcInput"
+					onChange={event=>toBase64(event.target.files[0]).then(file =>setNgc(file))} ref={ngcRef}/>
 			</div>
 
 		</div>

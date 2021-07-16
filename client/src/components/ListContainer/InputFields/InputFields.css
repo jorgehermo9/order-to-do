@@ -36,7 +36,7 @@
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-areas:
 	"input input buttons"
-	"png svg gnc";
+	"png svg ngc";
 
 	grid-gap: 1.5vmax;
 	align-items:center;
@@ -57,6 +57,6 @@
 .svg-container{
 	grid-area:svg;
 }
-.gnc-container{
-	grid-area:gnc;
+.ngc-container{
+	grid-area:ngc;
 }

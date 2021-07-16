@@ -1,29 +1,12 @@
-import {React,useEffect,useState} from 'react'
+import {React} from 'react'
 import CloseIcon from '@material-ui/icons/Close';
 import "./Sidebar.css"
 
 function Sidebar(props){
-	const toBase64 = file => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-});
-
-	const [pngFile,setPng] = useState(null);
-	const [svgFile,setSvg] = useState(null);
-	const [gncFile,setGnc] = useState(null);
-
-
-	useEffect(()=>{
-		props.item.png?toBase64(props.item.png).then((file)=>setPng(file)):setPng(null);
-		props.item.svg?toBase64(props.item.svg).then((file)=>setSvg(file)):setSvg(null);
-		props.item.gnc?toBase64(props.item.gnc).then((file)=>setGnc(file)):setGnc(null);
-	},[props.item.png,props.item.svg,props.item.gnc]);
 
 	return(
 		<div className="sidebar">
-			{props.item.png&&<img className="image" src={pngFile} alt="img-png"/>}
+			{props.item.png&&<img className="image" src={props.item.png} alt="img-png"/>}
 			<CloseIcon className="close-icon" onClick={()=>props.setSelectedItem(null)}/>
 
 			<div className="info-container">
@@ -59,13 +42,13 @@ function Sidebar(props){
 
 			<div className="files-container">
 				<div className="png-container">
-					{props.item.png && <a download="image.png" href={pngFile}>png</a>}
+					{props.item.png && <a download="image.png" href={props.item.png}>png</a>}
 				</div>
 				<div className="svg-container">
-					{props.item.svg && <a download="image.svg" href={svgFile}>svg</a>}
+					{props.item.svg && <a download="image.svg" href={props.item.svg}>svg</a>}
 				</div>
-				<div className="gnc-container">
-					{props.item.gnc && <a download="image.gnc" href={gncFile}>gnc</a>}
+				<div className="ngc-container">
+					{props.item.ngc && <a download="image.ngc" href={props.item.ngc}>ngc</a>}
 				</div>
 			</div>
 
