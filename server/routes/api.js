@@ -63,14 +63,14 @@ router.post("/remove",(req,res)=>{
 })
 router.post("/edit",(req,res)=>{
 	const id = req.body.item._id;
+	
 	User.findOneAndUpdate(
 		{username:"user","orders._id":id},
 		{$set:{"orders.$":req.body.item}},
 		{returnOriginal:false,useFindAndModify:false},
-		(err,item)=>{
+		(err,user)=>{
 			if(err) return console.error(err);
-			res.send(JSON.stringify(item))
-			console.log(item);
+			res.send(JSON.stringify(user.orders.find(item=>item._id==req.body.item._id)));
 			console.log("edited order from user");
 		}
 	)

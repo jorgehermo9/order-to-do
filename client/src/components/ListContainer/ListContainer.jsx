@@ -36,7 +36,7 @@ function ListContainer(props) {
 	function switchCheck(item){
 		let newItem={...item};
 		newItem.checked=!item.checked;
-		replaceItem(item,newItem);
+		replaceItem(newItem);
 	}
 	function removeItem(item){
 		fetch("/api/remove",{

@@ -34,8 +34,10 @@ function InputFields(props){
 			ngc:ngcFile,
 			checked:false
 		};
-		if(props.editItem !==null)
-			props.replaceItem(props.editItem,item);
+		if(props.editItem !==null){
+			item._id=props.editItem._id;
+			props.replaceItem(item);
+		}
 		else
 			props.appendToList(item);
 
