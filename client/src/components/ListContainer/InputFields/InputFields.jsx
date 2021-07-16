@@ -24,7 +24,8 @@ function InputFields(props){
 			address:itemAddress,
 			png:pngFile,
 			svg:svgFile,
-			gnc:gncFile
+			gnc:gncFile,
+			checked:false
 		};
 		if(props.editItem !==null)
 			props.replaceItem(props.editItem,item);

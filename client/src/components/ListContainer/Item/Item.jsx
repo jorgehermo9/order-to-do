@@ -27,16 +27,27 @@ function Item (props){
 			{props.item.png && <a className="png" download="image.png" href={pngFile}>png</a>}
 			{props.item.svg && <a className="svg" download="image.svg" href={svgFile}>svg</a>}
 			{props.item.gnc && <a className="gnc" download="image.gnc" href={gncFile}>gnc</a>}
-
+			
 			<div className="btn info" onClick={()=>props.setSelectedItem(props.item)}>
 				info
 			</div>
-			<div className="btn edit" onClick={()=>props.setEditItem(props.item)}>
-				edit
-			</div>
-			<div className="btn check">
-				check
-			</div>
+
+			{props.checked?
+				<div className="btn edit" onClick={()=>props.removeItem(props.item)}>
+					remove
+				</div>
+			:			
+				<div className="btn edit" onClick={()=>props.setEditItem(props.item)}>
+					edit
+				</div>
+			}
+
+			<div className="btn check" onClick={()=>props.switchCheck(props.item)}>
+				{props.checked?"uncheck":"check"}
+			</div>					
+				
+
+
 		</div>
 
 		)

@@ -6,7 +6,7 @@ function App(){
 	const [selectedItem, setSelectedItem] = useState(null)
 	return(
 	<div>
-		<ListContainer setSelectedItem={setSelectedItem}/>
+		<ListContainer selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>
 		{selectedItem && <Sidebar item={selectedItem} setSelectedItem={setSelectedItem}/>}
 	</div>
 	);
