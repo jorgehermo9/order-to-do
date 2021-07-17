@@ -1,8 +1,11 @@
 const express = require('express');
-const mongoose= require("mongoose");
+const mongoose = require("mongoose");
+const md5 = require("md5");
+
 const router = express.Router();
 const dotenv = require("dotenv");
 const model = require("../models/model");
+const { response } = require('express');
 
 const User = model.User;
 const Order = model.Order;
@@ -19,26 +22,44 @@ db.once('open', function() {
 const user = model.user;
 const order = model.order;
 
-router.get("/create",(req,res)=>{
-	const user = new User({username: "user",password: "user"})
-	User.find({username:"user"},(err,users)=>{
+const auth = async (user)=>{
+	let users = await User.find({username:user.username})
+	if(users.length>0){
+		let target = users[0];
+		if(target.password === md5(user.password)){
+			return true;
+		}
+	}
+	//If users.length == 0 or password !== user.password
+	return false;
+}
+router.post("/register",(req,res)=>{
+	const user = new User({username: req.body.user.username,password: md5(req.body.user.password)})
+	User.find({username:user.username},(err,users)=>{
 		if(err) return console.error(err);
 		if(users.length ===0){
 			user.save((err,user)=>{
 				if(err) return console.error(err);
 				console.log(`Created user ${user.username}`);
-				res.send("created user")
+				res.send(JSON.stringify("created user"))
 			});
 		}
 		else
-			res.send("user already exists");
+			res.send(JSON.stringify("user already exists"));
 	});
 })
-router.post("/add",(req,res)=>{
+router.post("/login",(req,res)=>{
+	auth(req.body.user).
+	then(data => res.send(JSON.stringify({login:data})));
+})
+router.post("/add",async (req,res)=>{
+	let logged = await auth(req.body.user);
+	if(!logged) return;
+	
 	console.log(req.body.item);
 	const order = new Order(req.body.item);
 	User.findOneAndUpdate(
-		{username:"user"},
+		{username:req.body.user.username},
 		{$push: {orders:order}},
 		{returnOriginal:false,useFindAndModify:false},
 		(err,item)=>{
@@ -48,10 +69,13 @@ router.post("/add",(req,res)=>{
 		}
 	)
 })
-router.post("/remove",(req,res)=>{
+router.post("/remove",async (req,res)=>{
+	let logged = await auth(req.body.user);
+	if(!logged) return;
+	
 	const id = req.body.item._id;
 	User.findOneAndUpdate(
-		{username:"user"},
+		{username:req.body.user.username},
 		{$pull:{"orders":{_id:id}}},
 		{useFindAndModify:false},
 		(err)=>{
@@ -61,11 +85,13 @@ router.post("/remove",(req,res)=>{
 		}
 	)
 })
-router.post("/edit",(req,res)=>{
+router.post("/edit",async (req,res)=>{
+	let logged = await auth(req.body.user);
+	if(!logged) return;
+
 	const id = req.body.item._id;
-	
 	User.findOneAndUpdate(
-		{username:"user","orders._id":id},
+		{username:req.body.user.username,"orders._id":id},
 		{$set:{"orders.$":req.body.item}},
 		{returnOriginal:false,useFindAndModify:false},
 		(err,user)=>{
@@ -75,8 +101,11 @@ router.post("/edit",(req,res)=>{
 		}
 	)
 })
-router.post("/orders",(req,res)=>{
-	User.findOne({username:"user"},(err,user)=>{
+router.post("/orders",async (req,res)=>{
+	let logged = await auth(req.body.user);
+	if(!logged) return;
+
+	User.findOne({username:req.body.user.username},(err,user)=>{
 		if(err) return console.error(err);
 		res.send(JSON.stringify(user.orders));
 	});

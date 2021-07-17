@@ -10,7 +10,7 @@ function ListContainer(props) {
 	function appendToList(item){
 		fetch("/api/add",{
 			method:"POST",
-			body:JSON.stringify({item:item}),
+			body:JSON.stringify({user:props.user,item:item}),
 			headers:{"Content-type":"application/json"}
 		})
 		.then(response=>response.json())
@@ -20,7 +20,7 @@ function ListContainer(props) {
 	function replaceItem(newItem){
 		fetch("/api/edit",{
 			method:"POST",
-			body:JSON.stringify({item:newItem}),
+			body:JSON.stringify({user:props.user,item:newItem}),
 			headers:{"Content-type":"application/json"}
 		})
 		.then(response=>response.json())
@@ -41,7 +41,7 @@ function ListContainer(props) {
 	function removeItem(item){
 		fetch("/api/remove",{
 			method:"POST",
-			body:JSON.stringify({item:item}),
+			body:JSON.stringify({user:props.user,item:item}),
 			headers:{"Content-type":"application/json"}
 		})
 		.then(response=>response.json())
@@ -58,7 +58,7 @@ function ListContainer(props) {
 	useEffect(()=>{
 		fetch("/api/orders",{
 			method:"POST",
-			body:JSON.stringify({}),
+			body:JSON.stringify({user:props.user}),
 			headers:{"Content-type":"application/json"}
 		})
 		.then(response=>response.json())

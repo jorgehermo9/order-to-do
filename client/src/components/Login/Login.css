@@ -1,0 +1,22 @@
+.main-container{
+	display:grid;
+	margin-top:1vmax;
+	justify-items: center;
+}
+
+.auth-container{
+	display:grid;
+	grid-template-columns:1fr 1fr;
+	grid-template-areas:
+	"login register";
+	grid-gap:1vmax;
+	width:70vw;
+	min-height:30vmax;
+}
+
+.login{
+	grid-area:login;
+}
+.register{
+	grid-area:register;
+}
