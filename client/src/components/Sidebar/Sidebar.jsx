@@ -42,13 +42,13 @@ function Sidebar(props){
 
 			<div className="files-container">
 				<div className="png-container">
-					{props.item.png && <a download="image.png" href={props.item.png}>png</a>}
+					{props.item.png && <a className="png" download={props.item.png.name} href={props.item.png.file}>png</a>}
 				</div>
 				<div className="svg-container">
-					{props.item.svg && <a download="image.svg" href={props.item.svg}>svg</a>}
+					{props.item.svg && <a className="svg" download={props.item.svg.name} href={props.item.svg.file}>svg</a>}
 				</div>
 				<div className="ngc-container">
-					{props.item.ngc && <a download="image.ngc" href={props.item.ngc}>ngc</a>}
+					{props.item.ngc && <a className="ngc" download={props.item.ngc.name} href={props.item.ngc.file}>ngc</a>}
 				</div>
 			</div>
 
