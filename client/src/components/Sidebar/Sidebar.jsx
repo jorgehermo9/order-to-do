@@ -6,7 +6,7 @@ function Sidebar(props){
 
 	return(
 		<div className="sidebar">
-			{props.item.png&&<img className="image" src={props.item.png} alt="img-png"/>}
+			{props.item.png&&<img className="image" src={props.item.png.file} alt="img-png"/>}
 			<CloseIcon className="close-icon" onClick={()=>props.setSelectedItem(null)}/>
 
 			<div className="info-container">

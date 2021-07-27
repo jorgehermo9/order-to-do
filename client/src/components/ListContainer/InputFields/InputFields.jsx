@@ -65,6 +65,9 @@ function InputFields(props){
 			setPng(props.editItem.png);
 			setSvg(props.editItem.svg);
 			setNgc(props.editItem.ngc);
+			pngRef.current.value="";
+			svgRef.current.value="";
+			ngcRef.current.value="";
 		}
 	},[props.editItem])
 	return(
@@ -85,20 +88,29 @@ function InputFields(props){
 			<div className="png-container">
 				<label htmlFor="pngInput">Choose png</label>
 				<input className="input-file" type="file" accept=".jpg,.jpeg,.png" name="pngInput" id="pngInput"
-					onChange={event=>toBase64(event.target.files[0]).then(file =>setPng(file))} ref={pngRef}/>
+					onChange=
+					{event=>toBase64(event.target.files[0]).then(file =>
+						setPng({file:file,name:event.target.files[0].name}))} 
+					ref={pngRef}/>
 					
 			</div>
 
 			<div className="svg-container">
 				<label htmlFor="svgInput">Choose svg</label>
 				<input className="input-file" type="file" accept=".svg" name="svgInput" id="svgInput"
-					onChange={event=>toBase64(event.target.files[0]).then(file =>setSvg(file))} ref={svgRef} />
+					onChange={
+						event=>toBase64(event.target.files[0]).then(file =>
+							setSvg({file:file,name:event.target.files[0].name}))} 
+						ref={svgRef} />
 			</div>
 
 			<div className="ngc-container">
 				<label htmlFor="ngcInput">Choose ngc</label>
 				<input className="input-file" type="file" accept=".ngc" name="ngcInput" id="ngcInput"
-					onChange={event=>toBase64(event.target.files[0]).then(file =>setNgc(file))} ref={ngcRef}/>
+					onChange={
+						event=>toBase64(event.target.files[0]).then(file =>
+							setNgc({file:file,name:event.target.files[0].name}))} 
+					ref={ngcRef}/>
 			</div>
 
 		</div>

@@ -4,9 +4,9 @@ const orderSchema = new mongoose.Schema({
 	desc: String,
 	client: String,
 	address: String,
-	png: String,
-	svg: String,
-	ngc: String,
+	png: {file: String, name: String},
+	svg: {file: String, name: String},
+	ngc: {file: String, name: String},
 	checked: Boolean,
 })
 
