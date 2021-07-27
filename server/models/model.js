@@ -6,7 +6,7 @@ const orderSchema = new mongoose.Schema({
 	address: String,
 	png: String,
 	svg: String,
-	gnc: String,
+	ngc: String,
 	checked: Boolean,
 })
 
