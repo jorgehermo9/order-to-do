@@ -20,7 +20,7 @@ function Card(props){
 	return(
 		<div className= {`${props.className} container`}>
 			<div className= "title-container">
-				{props.title}
+				<h2 className="title-text">{props.title}</h2>
 			</div>
 			<form className="form-container">
 				<input className="username-input input" type="text" inputmode="verbatim" value={username} 
