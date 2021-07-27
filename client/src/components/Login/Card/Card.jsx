@@ -24,11 +24,11 @@ function Card(props){
 			</div>
 			<form className="form-container">
 				<input className="username-input input" type="text" inputmode="verbatim" value={username} 
-				placeholder={"Username (3-16 alfanumeric)"} 
+				placeholder={"Username (3-16 alphanumeric)"} 
 				onChange={(e)=>regex.test(e.target.value) && setUserName(e.target.value)}/>
 				
 				<input className="password-input input" type="password" inputmode="verbatim" value={password} 
-				placeholder={"Password (6-16 alfanumeric)"} 
+				placeholder={"Password (6-16 alphanumeric)"} 
 				onChange={(e)=>regex.test(e.target.value) && setPassword(e.target.value)}/>
 				
 				<input type="submit" value={props.title} className="submit" onClick={submit}/>
