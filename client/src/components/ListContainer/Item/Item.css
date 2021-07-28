@@ -5,50 +5,104 @@
 	grid-template-columns: 3fr repeat(6,1fr);
 	grid-template-areas:
 	"item png svg ngc info edit check";
-
 	grid-gap:1vw ;
 	padding:0 1vmax;
-	
 	align-items:center;
-	border:0.15vmax solid rgb(30, 127, 165);
-	border-radius: 0.5vmax;
-	overflow:hidden;
-	height:100%;
+	border-radius: 25px;
+	box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+	10px 10px 15px rgba(70,70,70,0.12);
+	border: none;	border-radius: 0.5vmax;
+	height:4vmax;
+	background-color: #F0F0F3;
 }
 .list-item{
 	grid-area: item;
 	overflow: auto;
 }
-.btn{
+
+.btn-icon{
+	background-color: #F0F0F3;
 	cursor:pointer;
-	text-align: center;
-	border:0.15vmax solid rgb(53, 153, 219);
-	border-radius:0.5vmax;
-	background-color:white;
+	height: 3vw;
+	width: 3vw;
+	border-radius: 50%;
+	box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+	10px 10px 15px rgba(70,70,70,0.12);
+	border: none;
 }
-.btn:hover{
-	background-color: rgb(199, 188, 188);
+.brn-icon:hover{
+	pointer-events: none;
+
 }
 .png{
+	height: 1.5vmax;
+	width: 5vw;
 	grid-area: png;
 	text-align: center;
+	border-radius: 0.5vw;
+	box-shadow: -4px -4px 12px rgb(255, 255, 255), 4px 4px 12px rgba(121, 130, 160, 0.747);
+	font-weight: 400;
+}
+.png:active{
+	color: blue;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .svg{
+	
 	grid-area: svg;
 	text-align: center;
+	box-shadow: -4px -4px 12px rgb(255, 255, 255), 4px 4px 12px rgba(121, 130, 160, 0.747);
+	font-weight: 300;
+}
+.svg:active{
+	color: blue;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .ngc{
 	grid-area: ngc;
 	text-align: center;
+	box-shadow: -4px -4px 12px rgb(255, 255, 255), 4px 4px 12px rgba(121, 130, 160, 0.747);
+	font-weight: 300;
+	font-family: Montserrat;
+}
+.ngv:active{
+	color: blue;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .info{
 	grid-area: info;
+
 }
+.info:active{
+	color : #5D5D5D;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
+   }
 .edit{
 	grid-area: edit;
 
 }
+.edit:active{
+	color : #5D5D5D;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
+   }
 .check{
 	grid-area: check;
+
+}
+.check:active{
+	color : #50CB93;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
+   }
+.delete{
+	grid-area: edit;
+}
+.delete:active{
+	color : #D54C4C;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
+
+}
+a:link{
+	color: #000;
+	text-decoration: none;
 
 }

@@ -71,10 +71,15 @@ function ListContainer(props) {
 	return(
 		<div className="list-container">
 			<InputFields editItem={editItem} setEditItem={setEditItem} appendToList={appendToList} replaceItem={replaceItem}/>
+
 			<div className={`items-container ${checked?"items-checked":"items-not-checked"}`}>
-				<div className="switch-checked" onClick={()=>setChecked(!checked)}>
-				{checked?"Show not checked":"Show checked"}
-				</div>
+			<label class="label" >				
+				<div className="toggle"> 
+					<input class="toggle-state" type="checkbox" name="check" value="check" onClick={()=>setChecked(!checked)} />
+   					<div class="indicator"></div>
+  				</div>
+			</label>	
+
 				{items.filter(item=> item.checked === checked).map((item,index) =>
 				<Item 
 					key={index} 
