@@ -1,3 +1,4 @@
+import { Check, Create, DeleteForever, Receipt, SettingsBackupRestore } from '@material-ui/icons';
 import {React} from 'react'
 import "./Item.css"
 function Item (props){
@@ -11,23 +12,21 @@ function Item (props){
 			{props.item.svg && <a className="svg" download={props.item.svg.name} href={props.item.svg.file}>svg</a>}
 			{props.item.ngc && <a className="ngc" download={props.item.ngc.name} href={props.item.ngc.file}>ngc</a>}
 			
-			<div className="btn info" onClick={()=>props.setSelectedItem(props.item)}>
-				info
-			</div>
+			<button className="btn-icon info" onClick={()=>props.setSelectedItem(props.item)}><Receipt/></button>
 
 			{props.checked?
-				<div className="btn edit" onClick={()=>props.removeItem(props.item)}>
-					remove
-				</div>
+				<button className="btn-icon delete" onClick={()=>props.removeItem(props.item)}>
+					<DeleteForever/>
+				</button>
 			:			
-				<div className="btn edit" onClick={()=>props.setEditItem(props.item)}>
-					edit
-				</div>
+				<button className="btn-icon edit" onClick={()=>props.setEditItem(props.item)}>
+				<Create/>
+				</button>
 			}
 
-			<div className="btn check" onClick={()=>props.switchCheck(props.item)}>
-				{props.checked?"uncheck":"check"}
-			</div>					
+			<button className="btn-icon check" onClick={()=>props.switchCheck(props.item)}>
+				{props.checked?<SettingsBackupRestore/>:<Check/>}
+			</button>					
 				
 
 

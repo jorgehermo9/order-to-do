@@ -6,7 +6,7 @@
 	border-radius: 25px;
 	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 	border: none;
-	background-color: #ececec;
+	background-color: #F0F0F3;
 }
 .buttons{	
 	display:grid;
@@ -15,7 +15,7 @@
 	"submmit clear";
 }
 .submmit{
-	background-color: #ececec;
+	background-color: #F0F0F3;
 	cursor:pointer;
 	grid-area:submmit;
 	cursor:pointer;
@@ -29,11 +29,12 @@
 .submmit:active{
 	border-radius: 50%;
 	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
+	color: #50CB93;
 
 }
 
 .clear{
-	background-color: #ececec;
+	background-color: #F0F0F3;
 	grid-area:clear;
 	cursor:pointer;
 	height: 3vw;
@@ -42,20 +43,23 @@
 	box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
 	10px 10px 15px rgba(70,70,70,0.12);
 	border: none;
+
 }	
 .clear:active{
 	border-radius: 50%;
 	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
-
+	color: #D54C4C;
 }
 
 .input-file{
 	width:90%;
 	display: none ;
+	
 }
 .input-container{
+	outline:0;
 	display:grid;
-	grid-template-rows: 60% auto;	
+	grid-template-rows: 6fr 2fr;	
 	grid-gap: 1.5vmax;
 	align-items:center;
 	justify-items: left;
@@ -87,7 +91,7 @@
 }
 .input-boxes{
 	display:grid;
-	grid-template-rows: 70% auto;
+	grid-template-rows: 7fr 3fr;
 	grid-gap: 1vmax;
 	align-items:center;
 	justify-items: left;
@@ -118,10 +122,11 @@
 	grid-area:ngc;
 }
 .submit-button{
- background-color:#ececec;
+	
+ background-color:#F0F0F3;
  color:black;
  box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
- 10px 10px 15px rgba(70,70,70,0.12);;
+ 10px 10px 15px rgba(70,70,70,0.12);
  display: inline-block;
  border-radius: 0.5vmax;
  cursor: pointer;

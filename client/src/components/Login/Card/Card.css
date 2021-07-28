@@ -48,7 +48,7 @@
 	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 	border: none;
 	height:50px;
-	background-color: #ececec;
+	background-color: #F0F0F3;
 
 }
 .username-input[type='text']{
@@ -66,7 +66,7 @@
 	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 	border: none;
 	height:50px;
-	background-color: #ececec;
+	background-color: #F0F0F3;
 
 }
 .password-input[type='password']{
@@ -103,7 +103,7 @@
 	10px 10px 15px rgba(70,70,70,0.12);;
 	border-radius:1vmax;
 	border: none;
-	background-color:#ececec;
+	background-color:#F0F0F3;
 }
 .submit:active{
 	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;

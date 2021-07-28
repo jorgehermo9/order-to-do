@@ -81,7 +81,7 @@ function InputFields(props){
 					</div>
 					<div className="input-changer">
 						<div className="buttons">
-						  <button className="submmit" onClick={handleSubmmit} ><Add/></button>
+						  <button className="submmit" onClick={handleSubmmit}><Add/></button>
 						  <button className="clear" onClick={reset}><ClearAllRounded/></button>
 						</div>
 					</div>
