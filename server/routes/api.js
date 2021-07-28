@@ -49,7 +49,6 @@ router.post("/register",(req,res)=>{
 	});
 })
 router.post("/login",(req,res)=>{
-	console.log("ando aqui")
 	auth(req.body.user).
 	then(data => res.send(JSON.stringify({login:data})));
 })
