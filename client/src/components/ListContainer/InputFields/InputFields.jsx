@@ -1,6 +1,6 @@
 import {React,useState,useRef,useEffect} from 'react'
-import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
 import "./InputFields.css"
+import {  Add,  ClearAllRounded } from '@material-ui/icons';
 function InputFields(props){
 	const toBase64 = file => new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -72,46 +72,53 @@ function InputFields(props){
 	},[props.editItem])
 	return(
 		<div className="input-container">
-			<div className="text-container">
-				<input className = "input-item" type="text" onChange={e => setItemDesc(e.target.value)} value={itemDesc} placeholder="Description"/>
-				<input className = "input-item" type="text" onChange={e => setItemClient(e.target.value)} value={itemClient} placeholder="Client"/>
-				<input className = "input-item" type="text" onChange={e => setItemAddress(e.target.value)} value={itemAddress} placeholder="Address (optional)"/>
-			</div>
-			
-			<div className="buttons">
-				<AddCircleRoundedIcon className="submmit" onClick={handleSubmmit}/>
-				<div className="clear" onClick={reset}>
-					Clear
-				</div>
-			</div>
-
-			<div className="png-container">
-				<label htmlFor="pngInput">Choose png</label>
-				<input className="input-file" type="file" accept=".jpg,.jpeg,.png" name="pngInput" id="pngInput"
-					onChange=
-					{event=>toBase64(event.target.files[0]).then(file =>
-						setPng({file:file,name:event.target.files[0].name}))} 
-					ref={pngRef}/>
-					
+		 	<div className="input-upper">
+			 	<div className="input-boxes">
+					<div className="text-container">
+						<input className = "input-item" type="text" onChange={e => setItemDesc(e.target.value)} value={itemDesc} placeholder="Description"/>
+						<input className = "input-item" type="text" onChange={e => setItemClient(e.target.value)} value={itemClient} placeholder="Client"/>
+						<input className = "input-item" type="text" onChange={e => setItemAddress(e.target.value)} value={itemAddress} placeholder="Address (optional)"/>
+					</div>
+					<div className="input-changer">
+						<div className="buttons">
+						  <button className="submmit" onClick={handleSubmmit} ><Add/></button>
+						  <button className="clear" onClick={reset}><ClearAllRounded/></button>
+						</div>
+					</div>
+				</div>	
 			</div>
 
-			<div className="svg-container">
-				<label htmlFor="svgInput">Choose svg</label>
-				<input className="input-file" type="file" accept=".svg" name="svgInput" id="svgInput"
-					onChange={
-						event=>toBase64(event.target.files[0]).then(file =>
-							setSvg({file:file,name:event.target.files[0].name}))} 
-						ref={svgRef} />
-			</div>
+			<div className="input-lower">
+				<div className="input-buttons">
+						<div className="png-container">
+							<label className="submit-button" htmlFor="pngInput">Choose png</label>
+							<input className="input-file" type="file" accept=".jpg,.jpeg,.png" name="pngInput" id="pngInput"
+								onChange=
+								{event=>toBase64(event.target.files[0]).then(file =>
+									setPng({file:file,name:event.target.files[0].name}))} 
+								ref={pngRef}/>
+								
+						</div>
 
-			<div className="ngc-container">
-				<label htmlFor="ngcInput">Choose ngc</label>
-				<input className="input-file" type="file" accept=".ngc" name="ngcInput" id="ngcInput"
-					onChange={
-						event=>toBase64(event.target.files[0]).then(file =>
-							setNgc({file:file,name:event.target.files[0].name}))} 
-					ref={ngcRef}/>
-			</div>
+						<div className="svg-container">
+							<label className="submit-button" htmlFor="svgInput">Choose svg</label>
+							<input className="input-file" type="file" accept=".svg" name="svgInput" id="svgInput"
+								onChange={
+									event=>toBase64(event.target.files[0]).then(file =>
+										setSvg({file:file,name:event.target.files[0].name}))} 
+									ref={svgRef} />
+						</div>
+
+						<div className="ngc-container">
+							<label className="submit-button" htmlFor="ngcInput">Choose ngc</label>
+							<input className="input-file" type="file" accept=".ngc" name="ngcInput" id="ngcInput"
+								onChange={
+									event=>toBase64(event.target.files[0]).then(file =>
+										setNgc({file:file,name:event.target.files[0].name}))} 
+								ref={ngcRef}/>
+						</div>
+				</div>	
+			</div>		
 
 		</div>
 	)

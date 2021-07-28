@@ -15,7 +15,7 @@ function Card(props){
 			props.action(user);
 			setUserName("");
 			setPassword("");
-		}
+		}	
 	}
 	return(
 		<div className= {`${props.className} container`}>

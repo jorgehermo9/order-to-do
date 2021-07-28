@@ -63,7 +63,7 @@ function ListContainer(props) {
 		})
 		.then(response=>response.json())
 		.then(items=>setItems(items.reverse()))
-	},[])
+	},[props.user])
 	const [items,setItems] = useState([]);
 	const [editItem,setEditItem] = useState(null);
 	const [checked,setChecked] = useState(false);

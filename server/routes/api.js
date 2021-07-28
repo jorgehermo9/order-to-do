@@ -3,14 +3,13 @@ const mongoose = require("mongoose");
 const md5 = require("md5");
 
 const router = express.Router();
-const dotenv = require("dotenv");
+const dotenv = require("dotenv").config();
 const model = require("../models/model");
 const { response } = require('express');
 
 const User = model.User;
 const Order = model.Order;
 
-dotenv.config();
 
 mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.qyahe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, 
 	{useNewUrlParser: true, useUnifiedTopology: true});
@@ -34,6 +33,7 @@ const auth = async (user)=>{
 	return false;
 }
 router.post("/register",(req,res)=>{
+
 	const user = new User({username: req.body.user.username,password: md5(req.body.user.password)})
 	User.find({username:user.username},(err,users)=>{
 		if(err) return console.error(err);
@@ -49,6 +49,7 @@ router.post("/register",(req,res)=>{
 	});
 })
 router.post("/login",(req,res)=>{
+	console.log("ando aqui")
 	auth(req.body.user).
 	then(data => res.send(JSON.stringify({login:data})));
 })

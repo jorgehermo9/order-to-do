@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "server": "nodemon server.js",
-		"heroku": "cd ..;npm run build --prefix client/;git add .;git commit -a -m update;git push;git push heroku;cd server"
+    "heroku": "cd ..;npm run build --prefix client/;git add .;git commit -a -m update;git push;git push heroku;cd server"
   },
   "author": "",
   "license": "ISC",
