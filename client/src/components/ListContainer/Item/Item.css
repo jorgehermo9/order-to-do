@@ -48,22 +48,24 @@
 	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .svg{
-	
+	height: 1.5vmax;
+	width: 5vw;
 	grid-area: svg;
 	text-align: center;
 	box-shadow: -4px -4px 12px rgb(255, 255, 255), 4px 4px 12px rgba(121, 130, 160, 0.747);
-	font-weight: 300;
+	font-weight: 400;
 }
 .svg:active{
 	color: blue;
 	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .ngc{
+	height: 1.5vmax;
+	width: 5vw;
 	grid-area: ngc;
 	text-align: center;
 	box-shadow: -4px -4px 12px rgb(255, 255, 255), 4px 4px 12px rgba(121, 130, 160, 0.747);
-	font-weight: 300;
-	font-family: Montserrat;
+	font-weight: 400;
 }
 .ngc:active{
 	color: blue;
