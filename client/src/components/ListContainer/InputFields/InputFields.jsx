@@ -98,6 +98,7 @@ function InputFields(props){
 									setPng({file:file,name:event.target.files[0].name}))} 
 								ref={pngRef}/>
 								
+								
 						</div>
 
 						<div className="svg-container">
