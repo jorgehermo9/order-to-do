@@ -39,6 +39,7 @@ function ListContainer(props) {
 		replaceItem(newItem);
 	}
 	function removeItem(item){
+		//optimize remove with sending only item id
 		fetch("/api/remove",{
 			method:"POST",
 			body:JSON.stringify({user:props.user,item:item}),

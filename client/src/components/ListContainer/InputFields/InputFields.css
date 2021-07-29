@@ -83,10 +83,10 @@
 
 .input-buttons{
 	display:grid;
+	grid-template-columns: repeat(3,1fr);
 	grid-template-areas:
 	"png svg ngc";
 	grid-gap: 6vmax;
-	
 
 }
 .input-boxes{
@@ -113,13 +113,18 @@
 
 .png-container{
 	display:grid;
+	grid-template-rows:1fr 1fr;
 	grid-area:png;
 
 }
 .svg-container{
+	display:grid;
+	grid-template-rows:1fr 1fr;
 	grid-area:svg;
 }
 .ngc-container{
+	display:grid;
+	grid-template-rows:1fr 1fr;
 	grid-area:ngc;
 }
 .submit-button{
@@ -137,5 +142,11 @@
 }
 .submit-button:active{
  box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
+}
 
+.filename{
+	width:6vmax;
+	justify-self:center;
+	overflow: auto;
+	margin-bottom:0;
 }

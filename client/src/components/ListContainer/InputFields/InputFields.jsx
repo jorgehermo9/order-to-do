@@ -85,7 +85,7 @@ function InputFields(props){
 								onChange=
 								{event=>toBase64(event.target.files[0]).then(file =>
 									setPng({file:file,name:event.target.files[0].name}))}/>
-							{pngFile && <p>{pngFile.name}</p>}
+							{pngFile && <p className="filename">{pngFile.name}</p>}
 								
 						</div>
 
@@ -95,7 +95,7 @@ function InputFields(props){
 								onChange={
 									event=>toBase64(event.target.files[0]).then(file =>
 										setSvg({file:file,name:event.target.files[0].name}))}/>
-							{svgFile && <p>{svgFile.name}</p>}
+							{svgFile && <p className="filename">{svgFile.name}</p>}
 
 						</div>
 
@@ -105,7 +105,7 @@ function InputFields(props){
 								onChange={
 									event=>toBase64(event.target.files[0]).then(file =>
 										setNgc({file:file,name:event.target.files[0].name}))}/>
-							{ngcFile && <p>{ngcFile.name}</p>}
+							{ngcFile && <p className="filename">{ngcFile.name}</p>}
 
 						</div>
 				</div>	
