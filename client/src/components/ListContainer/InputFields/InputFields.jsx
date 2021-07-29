@@ -16,9 +16,6 @@ function InputFields(props){
 		setPng(null);
 		setSvg(null);
 		setNgc(null);
-		pngRef.current.value="";
-		svgRef.current.value="";
-		ngcRef.current.value="";
 		if(props.editItem !== null){
 			props.setEditItem(null);
 		}
@@ -51,11 +48,6 @@ function InputFields(props){
 	const [pngFile,setPng] = useState(null);
 	const [svgFile,setSvg] = useState(null);
 	const [ngcFile,setNgc] = useState(null);
-	//Cambiar setFile en vez de fila a string base 64
-	
-	const pngRef=useRef();
-	const svgRef=useRef();
-	const ngcRef=useRef();
 
 	useEffect(()=>{
 		if(props.editItem){
@@ -65,9 +57,6 @@ function InputFields(props){
 			setPng(props.editItem.png);
 			setSvg(props.editItem.svg);
 			setNgc(props.editItem.ngc);
-			pngRef.current.value="";
-			svgRef.current.value="";
-			ngcRef.current.value="";
 		}
 	},[props.editItem])
 	return(
@@ -95,9 +84,8 @@ function InputFields(props){
 							<input className="input-file" type="file" accept=".jpg,.jpeg,.png" name="pngInput" id="pngInput"
 								onChange=
 								{event=>toBase64(event.target.files[0]).then(file =>
-									setPng({file:file,name:event.target.files[0].name}))} 
-								ref={pngRef}/>
-								
+									setPng({file:file,name:event.target.files[0].name}))}/>
+							{pngFile && <p>{pngFile.name}</p>}
 								
 						</div>
 
@@ -106,8 +94,9 @@ function InputFields(props){
 							<input className="input-file" type="file" accept=".svg" name="svgInput" id="svgInput"
 								onChange={
 									event=>toBase64(event.target.files[0]).then(file =>
-										setSvg({file:file,name:event.target.files[0].name}))} 
-									ref={svgRef} />
+										setSvg({file:file,name:event.target.files[0].name}))}/>
+							{svgFile && <p>{svgFile.name}</p>}
+
 						</div>
 
 						<div className="ngc-container">
@@ -115,8 +104,9 @@ function InputFields(props){
 							<input className="input-file" type="file" accept=".ngc" name="ngcInput" id="ngcInput"
 								onChange={
 									event=>toBase64(event.target.files[0]).then(file =>
-										setNgc({file:file,name:event.target.files[0].name}))} 
-								ref={ngcRef}/>
+										setNgc({file:file,name:event.target.files[0].name}))}/>
+							{ngcFile && <p>{ngcFile.name}</p>}
+
 						</div>
 				</div>	
 			</div>		

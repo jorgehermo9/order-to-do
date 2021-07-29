@@ -6,6 +6,7 @@
 	border-radius: 25px;
 	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 	border: none;
+	outline:0;
 	background-color: #F0F0F3;
 }
 .buttons{	
@@ -59,13 +60,12 @@
 .input-container{
 	outline:0;
 	display:grid;
-	grid-template-rows: 6fr 2fr;	
+	grid-template-rows: 6fr 4fr;	
 	grid-gap: 1.5vmax;
 	align-items:center;
 	justify-items: left;
 	padding:1vw;
 	border-radius: 15px;
-
 }
 .input-upper{
 	align-self: center;
@@ -73,7 +73,7 @@
 
 }
 .input-lower{
-	align-self: center;
+	align-self: start;
 	justify-self: center;
 }
 .input-changer{
@@ -112,6 +112,7 @@
 }
 
 .png-container{
+	display:grid;
 	grid-area:png;
 
 }
