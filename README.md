@@ -2,4 +2,4 @@ React app for managing orders. Initial purpose was for managing manufacture orde
 
 Frontend using React and backend using Node and Express. File storage on firebase storage.
 
-Re-design made by [xiao-villamor](https://github.com/xiao-villamor)
+Frontend redesign made by [xiao-villamor](https://github.com/xiao-villamor)
