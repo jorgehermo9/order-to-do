@@ -12,6 +12,7 @@
 /build
 
 # misc
+order-to-do-firebase-adminsdk-*
 .env
 .DS_Store
 .env.local

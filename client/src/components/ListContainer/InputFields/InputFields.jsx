@@ -1,14 +1,8 @@
-import {React,useState,useRef,useEffect} from 'react'
+import {React,useState,useEffect} from 'react'
 import "./InputFields.css"
 import {  Add,  ClearAllRounded } from '@material-ui/icons';
+import FileInput from "./FileInput/FileInput"
 function InputFields(props){
-	const toBase64 = file => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-	});
-
 	function reset(){
 		setItemDesc("");
 		setItemClient("");
@@ -79,35 +73,12 @@ function InputFields(props){
 
 			<div className="input-lower">
 				<div className="input-buttons">
-						<div className="png-container">
-							<label className="submit-button" htmlFor="pngInput">Choose png</label>
-							<input className="input-file" type="file" accept=".jpg,.jpeg,.png" name="pngInput" id="pngInput"
-								onChange=
-								{event=>toBase64(event.target.files[0]).then(file =>
-									setPng({file:file,name:event.target.files[0].name}))}/>
-							{pngFile && <p className="filename">{pngFile.name}</p>}
-								
-						</div>
-
-						<div className="svg-container">
-							<label className="submit-button" htmlFor="svgInput">Choose svg</label>
-							<input className="input-file" type="file" accept=".svg" name="svgInput" id="svgInput"
-								onChange={
-									event=>toBase64(event.target.files[0]).then(file =>
-										setSvg({file:file,name:event.target.files[0].name}))}/>
-							{svgFile && <p className="filename">{svgFile.name}</p>}
-
-						</div>
-
-						<div className="ngc-container">
-							<label className="submit-button" htmlFor="ngcInput">Choose ngc</label>
-							<input className="input-file" type="file" accept=".ngc" name="ngcInput" id="ngcInput"
-								onChange={
-									event=>toBase64(event.target.files[0]).then(file =>
-										setNgc({file:file,name:event.target.files[0].name}))}/>
-							{ngcFile && <p className="filename">{ngcFile.name}</p>}
-
-						</div>
+					<FileInput className="png-container" type="png" 
+						accept=".jpg,.jpeg,.png" setFile={setPng} file={pngFile}/>
+					<FileInput className="svg-container" type="svg" 
+						accept=".svg" setFile={setSvg} file={svgFile}/>
+					<FileInput className="ngc-container" type="ngc" 
+						accept=".ngc" setFile={setNgc} file={ngcFile}/>
 				</div>	
 			</div>		
 

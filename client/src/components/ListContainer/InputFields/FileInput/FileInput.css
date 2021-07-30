@@ -1,0 +1,27 @@
+.input-container{
+	display:grid;
+	grid-template-rows:1fr 1fr;
+}
+.submit-button{
+	
+	background-color:#F0F0F3;
+	color:black;
+	box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+	10px 10px 15px rgba(70,70,70,0.12);
+	display: inline-block;
+	border-radius: 0.5vmax;
+	cursor: pointer;
+	padding: 1vmax;
+	text-align: center;
+	border: 1px solid #ececec;
+ }
+ .submit-button:active{
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
+ }
+ 
+ .filename{
+	 width:6vmax;
+	 justify-self:center;
+	 overflow: auto;
+	 margin-bottom:0;
+ }

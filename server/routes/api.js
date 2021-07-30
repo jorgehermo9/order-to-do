@@ -7,6 +7,19 @@ const dotenv = require("dotenv").config();
 const model = require("../models/model");
 const { response } = require('express');
 
+//Firebase db
+var admin = require("firebase-admin");
+var serviceAccount = require("../order-to-do-firebase-adminsdk-rd2by-59a62376a8.json");
+admin.initializeApp({
+  credential: admin.credential.cert({
+    "projectId": process.env.FIREBASE_PROJECT_ID,
+    "private_key": process.env.FIREBASE_PRIVATE_KEY,
+    "client_email": process.env.FIREBASE_CLIENT_EMAIL,
+  }),
+	storageBucket:"gs://order-to-do.appspot.com"
+});
+const bucket = admin.storage().bucket();
+
 const User = model.User;
 const Order = model.Order;
 
@@ -55,9 +68,23 @@ router.post("/login",(req,res)=>{
 router.post("/add",async (req,res)=>{
 	let logged = await auth(req.body.user);
 	if(!logged) return;
-	
-	console.log(req.body.item);
+	const types=["png","svg","ngc"];
+	const username = req.body.user.username;
 	const order = new Order(req.body.item);
+
+	for(let i=0; i<types.length; i++){
+		if(order[types[i]]){
+			const bucketFile =bucket.file(`users/${username}/${order._id}/${order[types[i	]].name}`);
+			const data = order[types[i]].file.split(',')[1];
+			const buffer = new Buffer.from(data,"base64");
+			await bucketFile.save(buffer,{
+				contentType:"application/octet-stream"
+			});
+			order[types[i]].file = bucketFile.publicUrl();
+		}
+	}
+
+	console.log(order);
 	User.findOneAndUpdate(
 		{username:req.body.user.username},
 		{$push: {orders:order}},
