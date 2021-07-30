@@ -21,6 +21,7 @@
  
  .filename{
 	 width:6vmax;
+	 height: 2vmax;
 	 justify-self:center;
 	 overflow: auto;
 	 margin-bottom:0;
