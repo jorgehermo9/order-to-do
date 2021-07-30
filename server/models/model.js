@@ -4,10 +4,10 @@ const orderSchema = new mongoose.Schema({
 	desc: String,
 	client: String,
 	address: String,
-	png: {file: String, name: String},
-	svg: {file: String, name: String},
-	ngc: {file: String, name: String},
 	checked: Boolean,
+	pngUrl: {file: String, name: String},
+	svgUrl: {file: String, name: String},
+	ngcUrl: {file: String, name: String}
 })
 
 const userSchema = new mongoose.Schema({

@@ -69,17 +69,19 @@ router.post("/add",async (req,res)=>{
 	if(!logged) return;
 	const types=["png","svg","ngc"];
 	const username = req.body.user.username;
-	const order = new Order(req.body.item);
+	const item = {...req.body.item};
 
+	const order = new Order(req.body.item);
 	for(let i=0; i<types.length; i++){
-		if(order[types[i]]){
-			const bucketFile =bucket.file(`users/${username}/${order._id}/${order[types[i	]].name}`);
-			const data = order[types[i]].file.split(',')[1];
+		if(item[types[i]]){
+			const bucketFile =bucket.file(`users/${username}/${order._id}/${item[types[i]].name}`);
+			const data = item[types[i]].file.split(',')[1];
 			const buffer = new Buffer.from(data,"base64");
 			await bucketFile.save(buffer,{
 				contentType:"application/octet-stream"
 			});
-			order[types[i]].file = bucketFile.publicUrl();
+			order[`${types[i]}Url`].file = bucketFile.publicUrl();
+			order[`${types[i]}Url`].name= item[types[i]].name;
 		}
 	}
 
@@ -98,6 +100,14 @@ router.post("/add",async (req,res)=>{
 router.post("/remove",async (req,res)=>{
 	let logged = await auth(req.body.user);
 	if(!logged) return;
+
+	const types=["png","svg","ngc"];
+	const username = req.body.user.username;
+	const item = {...req.body.item};
+
+	//Delete item files
+	bucket.deleteFiles(`users/${username}/${item._id}/`)
+
 	
 	const id = req.body.item._id;
 	User.findOneAndUpdate(
@@ -115,10 +125,33 @@ router.post("/edit",async (req,res)=>{
 	let logged = await auth(req.body.user);
 	if(!logged) return;
 
-	const id = req.body.item._id;
+	const types=["png","svg","ngc"];
+	const username = req.body.user.username;
+	const item = {...req.body.item};
+	
+	const order = new Order(req.body.item);
+	console.log(item);
+	for(let i=0; i<types.length; i++){
+		if(item[types[i]]){
+			//If there is another file uploaded, remove first
+			if(item[`${types[i]}Url`]){
+				const prevFile =bucket.file(`users/${username}/${item._id}/${item[`${types[i]}Url`].name}`);
+				prevFile.delete();
+			}
+			const bucketFile =bucket.file(`users/${username}/${item._id}/${item[types[i]].name}`);
+			const data = item[types[i]].file.split(',')[1];
+			const buffer = new Buffer.from(data,"base64");
+			await bucketFile.save(buffer,{
+				contentType:"application/octet-stream"
+			});
+			order[`${types[i]}Url`].file = bucketFile.publicUrl();
+			order[`${types[i]}Url`].name= item[types[i]].name;
+		}
+	}
+
 	User.findOneAndUpdate(
-		{username:req.body.user.username,"orders._id":id},
-		{$set:{"orders.$":req.body.item}},
+		{username:req.body.user.username,"orders._id":item._id},
+		{$set:{"orders.$":order}},
 		{returnOriginal:false,useFindAndModify:false},
 		(err,user)=>{
 			if(err) return console.error(err);

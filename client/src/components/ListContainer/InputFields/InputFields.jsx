@@ -26,7 +26,8 @@ function InputFields(props){
 			checked:false
 		};
 		if(props.editItem !==null){
-			item._id=props.editItem._id;
+			//Add default editItem fields
+			item = {...props.editItem,...item};
 			props.replaceItem(item);
 		}
 		else
@@ -74,11 +75,20 @@ function InputFields(props){
 			<div className="input-lower">
 				<div className="input-buttons">
 					<FileInput className="png-container" type="png" 
-						accept=".jpg,.jpeg,.png" setFile={setPng} file={pngFile}/>
+						accept=".jpg,.jpeg,.png" setFile={setPng} file={pngFile}
+						defaultName={(props.editItem && props.editItem.pngUrl)?
+							props.editItem.pngUrl.name:""}
+						/>
 					<FileInput className="svg-container" type="svg" 
-						accept=".svg" setFile={setSvg} file={svgFile}/>
+						accept=".svg" setFile={setSvg} file={svgFile}
+						defaultName={(props.editItem && props.editItem.svgUrl)?
+							props.editItem.svgUrl.name:""}
+						/>
 					<FileInput className="ngc-container" type="ngc" 
-						accept=".ngc" setFile={setNgc} file={ngcFile}/>
+						accept=".ngc" setFile={setNgc} file={ngcFile}
+						defaultName={(props.editItem && props.editItem.ngcUrl)?
+							props.editItem.ngcUrl.name:""}
+						/>
 				</div>	
 			</div>		
 

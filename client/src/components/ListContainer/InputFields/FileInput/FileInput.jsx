@@ -17,7 +17,7 @@ function FileInput(props){
 					onChange=
 					{event=>toBase64(event.target.files[0]).then(file =>
 						props.setFile({file:file,name:event.target.files[0].name}))}/>
-				{props.file && <p className="filename">{props.file.name}</p>}
+				{(props.file || props.defaultName!=="") && <p className="filename">{props.file?props.file.name:props.defaultName}</p>}
 			</div>
 		</div>
 		);

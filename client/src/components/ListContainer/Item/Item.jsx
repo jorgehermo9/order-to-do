@@ -8,9 +8,9 @@ function Item (props){
 			<div className="list-item">
 				{props.item.desc} 
 			</div>
-			{props.item.png && <a className="png" download={props.item.png.name} href={props.item.png.file}>png</a>}
-			{props.item.svg && <a className="svg" download={props.item.svg.name} href={props.item.svg.file}>svg</a>}
-			{props.item.ngc && <a className="ngc" download={props.item.ngc.name} href={props.item.ngc.file}>ngc</a>}
+			{props.item.pngUrl && <a className="png" download={props.item.pngUrl.name} href={props.item.pngUrl.file}>png</a>}
+			{props.item.svgUrl && <a className="svg" download={props.item.svgUrl.name} href={props.item.svgUrl.file}>svg</a>}
+			{props.item.ngcUrl && <a className="ngc" download={props.item.ngcUrl.name} href={props.item.ngcUrl.file}>ngc</a>}
 			
 			<button className="btn-icon info" onClick={()=>props.setSelectedItem(props.item)}><Receipt/></button>
 
