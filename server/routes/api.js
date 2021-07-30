@@ -9,7 +9,6 @@ const { response } = require('express');
 
 //Firebase db
 var admin = require("firebase-admin");
-var serviceAccount = require("../order-to-do-firebase-adminsdk-rd2by-59a62376a8.json");
 admin.initializeApp({
   credential: admin.credential.cert({
     "projectId": process.env.FIREBASE_PROJECT_ID,
