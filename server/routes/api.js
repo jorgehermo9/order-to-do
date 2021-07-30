@@ -78,6 +78,7 @@ router.post("/add",async (req,res)=>{
 			const data = item[types[i]].file.split(',')[1];
 			const buffer = new Buffer.from(data,"base64");
 			await bucketFile.save(buffer,{
+				gzip:true,
 				contentType:"application/octet-stream"
 			});
 			order[`${types[i]}Url`].file = bucketFile.publicUrl();
@@ -136,12 +137,13 @@ router.post("/edit",async (req,res)=>{
 			//If there is another file uploaded, remove first
 			if(item[`${types[i]}Url`]){
 				const prevFile =bucket.file(`users/${username}/${item._id}/${item[`${types[i]}Url`].name}`);
-				prevFile.delete();
+				await prevFile.delete();
 			}
 			const bucketFile =bucket.file(`users/${username}/${item._id}/${item[types[i]].name}`);
 			const data = item[types[i]].file.split(',')[1];
 			const buffer = new Buffer.from(data,"base64");
 			await bucketFile.save(buffer,{
+				gzip:true,
 				contentType:"application/octet-stream"
 			});
 			order[`${types[i]}Url`].file = bucketFile.publicUrl();
