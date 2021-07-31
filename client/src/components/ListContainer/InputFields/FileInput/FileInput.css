@@ -1,7 +1,4 @@
-.input-container{
-	display:grid;
-	grid-template-rows:1fr 1fr;
-}
+
 .submit-button{
 	
 	background-color:#F0F0F3;

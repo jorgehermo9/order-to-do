@@ -22,7 +22,7 @@ const bucket = admin.storage().bucket();
 const User = model.User;
 const Order = model.Order;
 
-
+//Conect to mongodb
 mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.qyahe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, 
 	{useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
@@ -30,9 +30,11 @@ db.on('error', console.error.bind(console, 'Connection error:'));
 db.once('open', function() {
 	console.log("Connected to db");
 });
+
 const user = model.user;
 const order = model.order;
 
+//auth if user is register on db 
 const auth = async (user)=>{
 	let users = await User.find({username:user.username})
 	if(users.length>0){
@@ -60,10 +62,12 @@ router.post("/register",(req,res)=>{
 			res.send(JSON.stringify("user already exists"));
 	});
 })
+
 router.post("/login",(req,res)=>{
 	auth(req.body.user).
 	then(data => res.send(JSON.stringify({login:data})));
 })
+
 router.post("/add",async (req,res)=>{
 	let logged = await auth(req.body.user);
 	if(!logged) return;
@@ -77,10 +81,12 @@ router.post("/add",async (req,res)=>{
 			const bucketFile =bucket.file(`users/${username}/${order._id}/${item[types[i]].name}`);
 			const data = item[types[i]].file.split(',')[1];
 			const buffer = new Buffer.from(data,"base64");
+			
 			await bucketFile.save(buffer,{
 				gzip:true,
 				contentType:"application/octet-stream"
 			});
+
 			order[`${types[i]}Url`].file = bucketFile.publicUrl();
 			order[`${types[i]}Url`].name= item[types[i]].name;
 		}

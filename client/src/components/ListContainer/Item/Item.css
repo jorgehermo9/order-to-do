@@ -2,9 +2,9 @@
 
 .item-wrapper{
 	display:grid;
-	grid-template-columns: 3fr repeat(6,1fr);
+	grid-template-columns: 3fr repeat(7,1fr);
 	grid-template-areas:
-	"item png svg ngc info edit check";
+	"item png svg ngc send info edit check";
 	grid-gap:1vw ;
 	padding:0 1vmax;
 	align-items:center;
@@ -15,8 +15,12 @@
 	height:4vmax;
 	background-color: #F0F0F3;
 }
+
 .list-item{
 	grid-area: item;
+	overflow: auto;
+	display: grid;
+	grid-template-columns: 13vmax auto;
 	overflow: auto;
 }
 
@@ -44,7 +48,7 @@
 	font-weight: 400;
 }
 .png:active{
-	color: blue;
+	color: #035397;
 	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .svg{
@@ -57,7 +61,7 @@
 	font-weight: 400;
 }
 .svg:active{
-	color: blue;
+	color: #035397;
 	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .ngc{
@@ -70,7 +74,7 @@
 	font-weight: 400;
 }
 .ngc:active{
-	color: blue;
+	color: #035397;
 	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .info{
@@ -100,6 +104,9 @@
 .delete{
 	grid-area: edit;
 }
+.send{
+	grid-area: send;
+}
 .delete:active{
 	color : #D54C4C;
 	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
@@ -109,4 +116,26 @@ a:link{
 	color: #000;
 	text-decoration: none;
 
+}
+.sended{
+	height: 0.6vmax;
+	width: 0.6vmax;
+	border-radius: 50%;
+	background-color: #50CB93;
+	margin-top: 0.36vmax;
+	filter: blur(0.7px);
+}
+.not-send{
+	height: 0.6vmax;
+	width: 0.6vmax;
+	border-radius: 50%;
+	background-color: #FFAA4C;
+	margin-top: 0.36vmax;
+	filter: blur(0.7px);
+}
+.text-item{
+	padding: 0.5vmax;
+	width: 8vmax;
+	height:1.1vmax;
+	color:black	;
 }
