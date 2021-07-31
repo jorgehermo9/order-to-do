@@ -23,9 +23,8 @@
 	grid-area: upper;
 	position:fixed;
 	display:grid;
-	grid-template-columns: 5fr 1fr;
-	grid-template-areas: "img" 
-	"close";
+	grid-template-columns: 20vw 1fr;
+	grid-template-areas: "img close";
 }
 .info-container{
 	display:grid;
@@ -156,7 +155,6 @@
 	border: 5px solid #F0F0F3;
 	box-shadow: -4px -4px 12px rgb(255, 255, 255), 4px 4px 12px rgba(121, 130, 160, 0.747);
 	grid-area: img;
-	width: 20vw;
 	height: 15vmax;
 }
 
