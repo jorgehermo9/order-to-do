@@ -2,12 +2,13 @@
 
 .item-wrapper{
 	display:grid;
-	grid-template-columns: 3fr repeat(7,1fr);
+	grid-template-columns: 3fr repeat(8,1fr);
 	grid-template-areas:
-	"item png svg ngc send info edit check";
+	"item state-info png svg ngc state info edit check";
 	grid-gap:1vw ;
 	padding:0 1vmax;
 	align-items:center;
+	justify-items:center;
 	border-radius: 25px;
 	box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
 	10px 10px 15px rgba(70,70,70,0.12);
@@ -18,9 +19,7 @@
 
 .list-item{
 	grid-area: item;
-	overflow: auto;
-	display: grid;
-	grid-template-columns: 13vmax auto;
+	justify-self:start;
 	overflow: auto;
 }
 
@@ -34,9 +33,8 @@
 	10px 10px 15px rgba(70,70,70,0.12);
 	border: none;
 }
-.brn-icon:hover{
-	pointer-events: none;
-
+.btn-icon:active{
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .png{
 	height: 1.5vmax;
@@ -49,7 +47,6 @@
 }
 .png:active{
 	color: #035397;
-	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .svg{
 	height: 1.5vmax;
@@ -62,7 +59,6 @@
 }
 .svg:active{
 	color: #035397;
-	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .ngc{
 	height: 1.5vmax;
@@ -75,7 +71,6 @@
 }
 .ngc:active{
 	color: #035397;
-	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .info{
 	grid-area: info;
@@ -83,56 +78,51 @@
 }
 .info:active{
 	color : #5D5D5D;
-	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
-   }
+}
 .edit{
 	grid-area: edit;
 
 }
 .edit:active{
 	color : #5D5D5D;
-	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
-   }
+}
 .check{
 	grid-area: check;
-
 }
 .check:active{
-	color : #50CB93;
-	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
-   }
+	color : #50CB93
+}
 .delete{
 	grid-area: edit;
 }
-.send{
-	grid-area: send;
+.state{
+	grid-area: state;
 }
 .delete:active{
 	color : #D54C4C;
-	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
-
 }
 a:link{
 	color: #000;
 	text-decoration: none;
 
 }
-.sended{
+.state-info{
+	grid-area:state-info;
 	height: 0.6vmax;
 	width: 0.6vmax;
 	border-radius: 50%;
-	background-color: #50CB93;
-	margin-top: 0.36vmax;
 	filter: blur(0.7px);
 }
-.not-send{
-	height: 0.6vmax;
-	width: 0.6vmax;
-	border-radius: 50%;
+.pending{
 	background-color: #FFAA4C;
-	margin-top: 0.36vmax;
-	filter: blur(0.7px);
 }
+.shipped{
+	background-color: #15a1e2;
+}
+.completed{
+	background-color: #1ea32f;
+}
+
 .text-item{
 	padding: 0.5vmax;
 	width: 8vmax;

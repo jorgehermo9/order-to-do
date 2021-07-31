@@ -23,7 +23,8 @@ function InputFields(props){
 			png:pngFile,
 			svg:svgFile,
 			ngc:ngcFile,
-			checked:false
+			checked:false,
+			state:"pending"
 		};
 		if(props.editItem !==null){
 			//Add default editItem fields

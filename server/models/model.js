@@ -5,6 +5,7 @@ const orderSchema = new mongoose.Schema({
 	client: String,
 	address: String,
 	checked: Boolean,
+	state:String,
 	pngUrl: {file: String, name: String},
 	svgUrl: {file: String, name: String},
 	ngcUrl: {file: String, name: String}

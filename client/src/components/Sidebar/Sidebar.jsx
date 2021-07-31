@@ -8,7 +8,8 @@ function Sidebar(props){
 		<div className="sidebar">
 			<div className="top-container">
 				<div className="image-container">
-				{props.item.pngUrl&&<img className="image" src={props.item.pngUrl.file} alt="img-png"/>}
+				{<img className="image" 
+				src={props.item.pngUrl?props.item.pngUrl.file:"/assets/no-photos.svg"} alt="img-png"/>}
 				</div>
 				
 				<div>

@@ -35,8 +35,16 @@ function ListContainer(props) {
 	}
 	function switchCheck(item){
 		let newItem={...item};
+		if(newItem.checked) newItem.state="pending";
 		newItem.checked=!item.checked;
 		replaceItem(newItem);
+	}
+
+	function setState(item,state){
+		let newItem={...item};
+		newItem.state=state;
+		replaceItem(newItem);
+	
 	}
 	function removeItem(item){
 		//optimize remove with sending only item id
@@ -90,6 +98,7 @@ function ListContainer(props) {
 					checked={checked}
 					switchCheck={switchCheck}
 					removeItem={removeItem}
+					setState={setState}
 					/>
 				)}
 			</div>
