@@ -20,7 +20,7 @@
 .list-item{
 	grid-area: item;
 	justify-self:start;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .btn-icon{
@@ -130,4 +130,5 @@ a:link{
 	padding: 0.5vmax;
 	width: 8vmax;
 	color:black	;
+	overflow-x: auto;
 }

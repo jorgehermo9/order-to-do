@@ -137,6 +137,7 @@
 
 .text{
 	padding: 0.5vmax;
+	height:1.4vmax;
 	width:15vw;
 	color:black	;
 	overflow-x: auto;
