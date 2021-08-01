@@ -113,7 +113,9 @@ router.post("/remove",async (req,res)=>{
 	const item = {...req.body.item};
 
 	//Delete item files
-	bucket.deleteFiles(`users/${username}/${item._id}/`)
+	bucket.deleteFiles({
+		prefix:`users/${username}/${item._id}/`
+	})
 
 	
 	const id = req.body.item._id;
