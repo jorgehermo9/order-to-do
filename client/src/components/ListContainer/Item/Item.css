@@ -47,6 +47,7 @@
 }
 .png:active{
 	color: #035397;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .svg{
 	height: 1.5vmax;
@@ -59,6 +60,7 @@
 }
 .svg:active{
 	color: #035397;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .ngc{
 	height: 1.5vmax;
@@ -71,6 +73,7 @@
 }
 .ngc:active{
 	color: #035397;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
 }
 .info{
 	grid-area: info;
@@ -126,6 +129,5 @@ a:link{
 .text-item{
 	padding: 0.5vmax;
 	width: 8vmax;
-	height:1.1vmax;
 	color:black	;
 }
