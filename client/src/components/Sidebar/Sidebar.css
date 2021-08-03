@@ -140,7 +140,9 @@
 	height:1.4vmax;
 	width:15vw;
 	color:black	;
+	white-space: nowrap;
 	overflow-x: auto;
+	overflow-y:hidden;
 }
 .text-wrapper{
 	border: none;
