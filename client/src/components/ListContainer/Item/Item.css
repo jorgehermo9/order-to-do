@@ -2,7 +2,7 @@
 
 .item-wrapper{
 	display:grid;
-	grid-template-columns: 3fr repeat(8,1fr);
+	grid-template-columns: auto repeat(8,1fr);
 	grid-template-areas:
 	"item state-info png svg ngc state info edit check";
 	grid-gap:1vw ;
@@ -20,6 +20,7 @@
 .list-item{
 	grid-area: item;
 	justify-self:start;
+	border-radius:0.5vmax;
 	overflow: hidden;
 }
 
@@ -128,7 +129,7 @@ a:link{
 
 .text-item{
 	padding: 0.5vmax;
-	width: 8vmax;
+	width: 15vw;
 	height:1.4vmax;
 	color:black	;
 	white-space: nowrap;
