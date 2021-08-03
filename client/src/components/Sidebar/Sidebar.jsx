@@ -12,9 +12,9 @@ function Sidebar(props){
 				src={props.item.pngUrl?props.item.pngUrl.file:"/assets/no-photos.svg"} alt="img-png"/>}
 				</div>
 				
-				<div>
+				
 				<button className="close-icon" onClick={()=>props.setSelectedItem(null)}><CloseIcon/></button>
-				</div>
+				
 			</div>
 
 			<div className="info-container">

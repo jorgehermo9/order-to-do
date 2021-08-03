@@ -1,7 +1,7 @@
 .sidebar{
 	position:fixed;
 	display:grid;
-	grid-template-rows: 15vmax 4fr 1fr;
+	grid-template-rows: auto 4fr 1fr;
 	grid-template-areas: 
 	"upper"
 	"info"
@@ -21,9 +21,8 @@
 }
 .top-container{
 	grid-area: upper;
-	position:fixed;
 	display:grid;
-	grid-template-columns: 20vw 1fr;
+	grid-template-columns: auto 1fr;
 	grid-template-areas: "img close";
 }
 .info-container{
@@ -120,7 +119,6 @@
 	grid-area:close;
 	justify-self:right;
 	text-align: center;
-	margin-left: 10px;
 	background-color: #F0F0F3;
 	cursor:pointer;
 	height: 2.4vw;
@@ -157,7 +155,8 @@
 	border: 5px solid #F0F0F3;
 	box-shadow: -4px -4px 12px rgb(255, 255, 255), 4px 4px 12px rgba(121, 130, 160, 0.747);
 	grid-area: img;
-	height: 15vmax;
+	height:15vmax;
+	width:19vw;
 }
 
 .image{
