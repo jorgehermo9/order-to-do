@@ -3,12 +3,12 @@
 	
 	background-color:#F0F0F3;
 	color:black;
-	box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
-	10px 10px 15px rgba(70,70,70,0.12);
+	box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.63),
+	10px 10px 15px rgba(70, 70, 70, 0.24);
 	display: inline-block;
-	border-radius: 0.5vmax;
+	border-radius: 1vmax;
 	cursor: pointer;
-	padding: 1vmax;
+	padding: 0.7vmax;
 	text-align: center;
 	border: 1px solid #ececec;
  }
