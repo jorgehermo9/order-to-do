@@ -40,7 +40,10 @@ function Item (props){
 					<DeleteForever/>
 				</button>
 			:			
-				<button className="btn-icon edit" onClick={()=>props.setEditItem(props.item)}>
+				<button className="btn-icon edit" onClick={()=>{
+					window.scrollTo({top:0,behavior:"smooth"})
+					props.setEditItem(props.item)
+					}}>
 				<Create/>
 				</button>
 			}
