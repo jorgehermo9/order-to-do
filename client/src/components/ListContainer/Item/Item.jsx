@@ -36,7 +36,7 @@ function Item (props){
 			<button className="btn-icon info" onClick={()=>props.setSelectedItem(props.item)}><Receipt/></button>
 
 			{props.checked?
-				<button className="btn-icon delete" onClick={()=>props.removeItem(props.item)}>
+				<button className="btn-icon delete" onClick={()=>window.confirm("Are you sure to delete?") && props.removeItem(props.item)}>
 					<DeleteForever/>
 				</button>
 			:			
