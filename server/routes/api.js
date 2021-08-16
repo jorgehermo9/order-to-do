@@ -5,7 +5,6 @@ const md5 = require("md5");
 const router = express.Router();
 const dotenv = require("dotenv").config();
 const model = require("../models/model");
-const { response } = require('express');
 
 //Firebase db
 var admin = require("firebase-admin");
