@@ -1,7 +1,8 @@
+
 .list-container{
 	display:grid;
+    grid-area:listcontainer;
 	width:70vw;
-	margin-top:1vmax;
 	grid-template-columns: 1fr;
 	grid-template-rows: auto minmax(50vmax,auto);
 	grid-gap:1.5vmax;

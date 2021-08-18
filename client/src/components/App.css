@@ -1,0 +1,30 @@
+.app-container{
+    display:grid;
+    grid-template-rows:3vmax auto;
+    grid-template-areas:
+    "topbar"
+    "listcontainer";
+    width:70vw;
+    grid-gap:4vmax;
+    margin-top:1vmax;
+}
+.top-bar{
+    display:grid;
+    grid-area:topbar;
+    justify-items: left;
+    grid-auto-flow: column;
+    margin: 0 0.5vw;
+}
+.topbar-btn-icon{
+	background-color: #F0F0F3;
+	cursor:pointer;
+	height: 2vw;
+	width: 3vw;
+	border-radius: 25%;
+	box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+	10px 10px 15px rgba(70,70,70,0.24);
+	border: none;
+}
+.topbar-btn-icon:active{
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
+}

@@ -78,31 +78,31 @@ function ListContainer(props) {
 	const [checked,setChecked] = useState(false);
 
 	return(
-		<div className="list-container">
-			<InputFields editItem={editItem} setEditItem={setEditItem} appendToList={appendToList} replaceItem={replaceItem}/>
+            <div className="list-container">
+                <InputFields editItem={editItem} setEditItem={setEditItem} appendToList={appendToList} replaceItem={replaceItem}/>
 
-			<div className={`items-container ${checked?"items-checked":"items-not-checked"}`}>
-			<label class="label" >				
-				<div className="toggle"> 
-					<input class="toggle-state" type="checkbox" name="check" value="check" onClick={()=>setChecked(!checked)} />
-   					<div class="indicator"></div>
-  				</div>
-			</label>	
+                <div className="items-container">
+                <label class="label" >				
+                    <div className="toggle"> 
+                        <input class="toggle-state" type="checkbox" name="check" value="check" onClick={()=>setChecked(!checked)} />
+                        <div class="indicator"></div>
+                    </div>
+                </label>	
 
-				{items.filter(item=> item.checked === checked).map((item,index) =>
-				<Item 
-					key={index} 
-					item={item} 
-					setSelectedItem={props.setSelectedItem}
-					setEditItem={setEditItem}
-					checked={checked}
-					switchCheck={switchCheck}
-					removeItem={removeItem}
-					setState={setState}
-					/>
-				)}
-			</div>
-		</div>
+                    {items.filter(item=> item.checked === checked).map((item,index) =>
+                    <Item 
+                        key={index} 
+                        item={item} 
+                        setSelectedItem={props.setSelectedItem}
+                        setEditItem={setEditItem}
+                        checked={checked}
+                        switchCheck={switchCheck}
+                        removeItem={removeItem}
+                        setState={setState}
+                        />
+                    )}
+                </div>
+            </div>
 	)
 }
 
