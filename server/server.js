@@ -10,7 +10,7 @@ app.use(express.urlencoded({extended:true}));
 const port = process.env.PORT	|| 3001;
 
 app.use("/api",api);
-app.use(express.static("../client/build"))
+app.use(express.static("client/build"))
 
 
 

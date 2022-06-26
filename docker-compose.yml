@@ -1,0 +1,5 @@
+server:
+	build: .
+	image: orders/server
+	ports:
+		- "3000:3000"

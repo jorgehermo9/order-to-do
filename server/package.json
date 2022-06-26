@@ -6,8 +6,9 @@
   "scripts": {
     "server": "nodemon server.js",
     "heroku": "cd ..;npm run build --prefix client/;git add .;git commit -a -m update;git push;git push heroku;cd server",
-    "dev":"concurrently \"nodemon server.js\" \"npm start --prefix ../client\"",
-    "deploy":"cd ../client;npm run build;cd ..;git add .;git commit -am update;git push"
+    "dev": "concurrently \"nodemon server.js\" \"npm start --prefix ../client\"",
+    "deploy": "cd ../client;npm run build;cd ..;git add .;git commit -am update;git push",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
