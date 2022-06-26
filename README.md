@@ -11,6 +11,6 @@ then, from root folder, run:
 
 ```console
 docker build . -t orders/server
-docker run -p 3000:3000 -d orders.server
+docker run -p 3000:3000 -d --restart always orders/server
 ```
 
